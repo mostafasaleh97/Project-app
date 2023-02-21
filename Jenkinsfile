@@ -18,7 +18,7 @@ pipeline {
         stage('deploy') {
             steps {
             
-                    withCredentials([file(credentialsId: 'kubernetes_kubeconfig', variable: 'config')]) {
+                   
                     sh """
                         export BUILD_NUMBER=\$(cat ../bakehouse-build-number.txt)
                         mv Deployment/deploy.yaml Deployment/deploy.yaml.tmp
@@ -26,7 +26,7 @@ pipeline {
                         rm -f Deployment/deploy.yaml.tmp
                         kubectl apply -f Deployment --kubeconfig=${config}
                     """
-                }
+                
             
                 
             }
