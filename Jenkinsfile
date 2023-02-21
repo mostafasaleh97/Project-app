@@ -6,8 +6,8 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'mostafa', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh """
                             docker login -u $USERNAME -p $PASSWORD
-                            docker build -t mostafa001/myapp:${BUILD_NUMBER} .
-                            docker push mostafa001/myapp:${BUILD_NUMBER}
+                            docker build -t mostafa001/project-app:${BUILD_NUMBER} .
+                            docker push mostafa001/project-app:${BUILD_NUMBER}
                             echo ${BUILD_NUMBER} > ../bakehouse-build-number.txt
                         """
                     }

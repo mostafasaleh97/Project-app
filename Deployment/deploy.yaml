@@ -5,7 +5,7 @@ kind: Deployment
 metadata:
 
   name: newdeploy
-  
+  namespace: myapp
 
   labels:
 
@@ -13,7 +13,7 @@ metadata:
 
 spec:
 
-  replicas: 2
+  replicas: 1
 
   selector:
 
@@ -35,7 +35,7 @@ spec:
 
       - name: python-app
 
-        image: mostafa001/myapp:${BUILD_NUMBER}
+        image: mostafa001/project-app:${BUILD_NUMBER}
 
         ports:
 
